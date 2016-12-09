@@ -1,35 +1,40 @@
-Saleor
+Django E-commerce
 ======
-
-Avast ye landlubbers! Saleor be a Satchless store ye can fork.
-
-[![Build Status](https://travis-ci.org/mirumee/saleor.png?branch=master)](https://travis-ci.org/mirumee/saleor)
-[![Requirements Status](https://requires.io/github/mirumee/saleor/requirements.svg?branch=master)](https://requires.io/github/mirumee/saleor/requirements/?branch=master)
 
 
 Usage
 -----
+Clone the repository (or use your own fork):
 
-See the [Saleor docs](https://saleor.readthedocs.io) for installation and deployment instructions.
+$ git 
+Enter the directory:
+
+$ cd e-commerce/
+Install all dependencies:
+
+$ pip install -r requirements.txt
+Set SECRET_KEY environment variable.
+
+Note
+
+Secret key should be a unique string only your team knows. It’s serious as this key is used to ensure security of your installation. Consult Django’s documentation for details.
+
+We try to provide usable default values for all of the settings. We’ve decided not to provide a default for SECRET_KEY as we fear someone would inevitably ship a project with the default value left in code.
+$ export SECRET_KEY='<mysecretkey>'
+Prepare the database:
+
+$ python manage.py migrate
+Install front-end dependencies:
+
+$ npm install
+Note
+
+If this step fails go back and make sure you’re using new enough versions of Node.js and npm.
+Prepare front-end assets:
+
+$ npm run build-assets
+Run like a normal django project:
+
+$ python manage.py runserver
 
 
-Demo
-----
-
-Want to see Saleor in action? Launch the demo on a free Heroku instance.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-Login credentials: `admin@example.com`/`admin`
-
-
-Commercial support
-------------------
-
-Disclaimer: everything you see here is open and free to use as long as you comply with the [license](LICENSE). It is not a bait to force you to pay us later and we promise to do our bests to fix bugs and improve the code.
-
-Some situations however call for extra code being written. Whether you need us to cover an exotic use case or build you a custom e-commerce appliance, our team can help.
-
-> Mirumee Software
-> http://mirumee.com/
-> hello@mirumee.com
